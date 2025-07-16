@@ -48,7 +48,7 @@ Dengan latar belakang pendidikan di bidang teknologi dan minat besar dalam dunia
   <section class="about" id="about">
     <div class="container about-flex">
       <div class="about-img">
-        <img src="img/gaby2.jpg" alt="Gaby Profile" />
+        <img src="img/gaby24.png" alt="Gaby Profile" />
       </div>
       <div class="about-text">
         <h3>Saya Mahasiswa yang Aktif Mengembangkan Proyek Sistem Informasi</h3>
@@ -63,28 +63,108 @@ Dengan latar belakang pendidikan di bidang teknologi dan minat besar dalam dunia
   </section>
 
   <!-- Projects -->
-  <section class="projects" id="projects">
-    <div class="container">
-      <h2>Recent Projects</h2>
-      <div class="project-grid">
+ <div class="project-grid">
 
-        <!-- Project 1 -->
-        <div class="project-card">
-          <a href="https://gaby073.github.io/appkeuangan/" target="_blank">
-            <img src="img/money.png" alt="Money Tracker" />
-            <h3>Money Tracker (Flutter Web)</h3>
-            <p>Ayoo mulai memanajemen keuanganmu agar lebih jelas.</p>
-          </a>
-        </div>
+  <!-- Project 1 -->
+  <div class="project-card">
+    <a href="https://gaby073.github.io/appkeuangan/" target="_blank">
+      <img src="img/money.png" alt="Money Tracker" />
+      <h3>Money Tracker (Flutter Web)</h3>
+      <p>Ayoo mulai memanajemen keuanganmu agar lebih jelas.</p>
+    </a>
+    <p>
+      🔗 <a href="https://github.com/gaby073/appkeuangan" target="_blank">Lihat Kode di GitHub</a>
+    </p>
+  </div>
 
-        <!-- Project 2 -->
-        <div class="project-card">
-          <a href="https://gaby073.github.io/uts_mobilelanjut1/" target="_blank">
-            <img src="img/cover.png" alt="Zodiak App Web" />
-            <h3>Zodiak App (Flutter Web)</h3>
-            <p>Lihat ramalan zodiak berdasarkan tanggal lahir. Dibuat dengan Flutter dan Provider.</p>
-          </a>
-        </div>
+  <!-- Project 2 -->
+  <div class="project-card">
+    <a href="https://gaby073.github.io/uts_mobilelanjut1/" target="_blank">
+      <img src="img/cover.png" alt="Zodiak App Web" />
+      <h3>Zodiak App (Flutter Web)</h3>
+      <p>Lihat ramalan zodiak berdasarkan tanggal lahir. Dibuat dengan Flutter dan Provider.</p>
+    </a>
+    <p>
+      🔗 <a href="https://github.com/gaby073/uts_mobilelanjut1" target="_blank">Lihat Kode di GitHub</a>
+    </p>
+  </div>
+
+  <!-- Project 3: Bookku -->
+  <div class="project-card">
+    <a href="#" onclick="toggleDetails(event, 'bookku-details')">
+      <img src="img/book.png" alt="Bookku App Preview" />
+      <h3>📚 Bookku - Perpustakaan Web</h3>
+      <p>Aplikasi Android Flutter untuk membaca dan menyimpan buku favorit.</p>
+    </a>
+    <p>
+      🔗 <a href="https://github.com/neorival67/bookku" target="_blank">Lihat Kode di GitHub</a> |
+      📲 <a href="https://drive.google.com/file/d/15ituT3kTmOBVBaifesmeYsyHFlyOmof8/view?usp=drive_link" target="_blank">Download APK</a>
+    </p>
+    <button class="detail-button" onclick="toggleDetails(event, 'bookku-details')">Lihat Detail</button>
+
+    <div class="project-details" id="bookku-details" style="display: none;">
+      <p><strong>📌 Fitur untuk User:</strong></p>
+      <ul>
+        <li>🔐 Register dan Login pengguna</li>
+        <li>📖 Membaca buku digital yang tersedia</li>
+        <li>❤️ Menambahkan buku ke daftar favorit</li>
+        <li>🔍 Menjelajahi buku berdasarkan judul</li>
+      </ul>
+      <p>📱 Dibuat menggunakan Flutter dengan integrasi database Firebase</p>
+      <p><strong>👩‍💻 Peran Tim:</strong></p>
+      <ul>
+        <li><strong>Daffa</strong> – Backend Developer (Firebase Auth & Database)</li>
+        <li><strong>Gaby</strong> – Frontend Developer (UI & Navigasi)</li>
+        <li><strong>Rasendriya</strong> – Frontend Developer (Page & Komponen Buku)</li>
+        <li><strong>Putri</strong> – Frontend Developer (Desain UI dan Responsivitas)</li>
+      </ul>
+      📄 <a href="https://docs.google.com/document/d/1Fc7p5uKo0gWC4e8DbW3s1XHXxrS6N67n-VekslZUSdM/edit?usp=sharing" target="_blank">Lihat Laporan Proyek</a>
+    </div>
+  </div>
+
+  <!-- Project 4: UAS Mobile -->
+  <div class="project-card">
+    <a href="#" onclick="toggleDetails(event, 'uas-details')">
+      <img src="img/flutter.png" alt="UAS Mobile App Preview" />
+      <h3>📱 UAS Mobile Lanjut App</h3>
+      <p>Aplikasi Flutter dengan daftar buku & fitur interaktif.</p>
+    </a>
+    <p>
+      🔗 <a href="https://github.com/rahmadwiasti/UASMobileLanjut" target="_blank">Lihat Kode di GitHub</a> |
+      📲 <a href="https://drive.google.com/file/d/1kmofgdh-xtueaXzTvLhMmmJSegF9P5hj/view?usp=drive_link" target="_blank">Download APK</a>
+    </p>
+    <button class="detail-button" onclick="toggleDetails(event, 'uas-details')">Lihat Detail</button>
+
+    <div class="project-details" id="uas-details" style="display: none;">
+      <p><strong>📌 Fitur Utama:</strong></p>
+      <ul>
+        <li>🖼️ Splash screen & tampilan card daftar buku</li>
+        <li>❤️ Fitur like/unlike (buku favorit)</li>
+        <li>🔍 Zoom-out dan detail tampilan buku</li>
+        <li>🗑️ Tombol hapus buku dari daftar</li>
+      </ul>
+      <p>📱 Dibuat menggunakan Flutter</p>
+      <p><strong>👩‍💻 Pembagian Tugas:</strong></p>
+      <ul>
+        <li><strong>Gaby</strong> – Splash screen, card, fitur love/unlove (17 & 19 Juli)</li>
+        <li><strong>Putri</strong> – Zoom out, detail card, tombol hapus (18–20 Juli)</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+  function toggleDetails(event, detailId) {
+    event.preventDefault();
+    const section = document.getElementById(detailId);
+    section.style.display = section.style.display === 'block' ? 'none' : 'block';
+  }
+</script>
+
+
+</body>
+</html>
+
 
       </div>
     </div>
