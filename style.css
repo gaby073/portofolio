@@ -330,4 +330,61 @@ body {
   background-color: #1e293b;
   border-radius: 8px;
 }
+.contact {
+  padding: 60px 0;
+  text-align: center;
+}
+
+.contact-vertical p {
+  margin: 10px 0;
+}
+
+.contact-vertical a {
+  color: #3b82f6;
+  text-decoration: none;
+}
+
+.contact-vertical a:hover {
+  text-decoration: underline;
+}
+.skills {
+  padding: 50px 0;
+  background-color: #0f172a;
+  color: white;
+  text-align: center;
+}
+
+.skills .section-title {
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+.skills-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.skills-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.skill-item {
+  background-color: #1e293b;
+  padding: 15px 25px;
+  border-radius: 12px;
+  font-weight: bold;
+  text-align: left;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.skill-item:hover {
+  background-color: #3b82f6;
+  color: white;
+  transform: translateY(-4px);
+}
 
