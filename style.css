@@ -216,6 +216,77 @@ nav .btn {
   margin: 5px 0;
 }
 
+/* --- EXPERIENCE SECTION --- */
+.experience {
+  padding: 60px 0;
+  text-align: center;
+  animation: fadeIn 1s ease;
+}
+
+.experience .section-title {
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+.experience-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+}
+
+.experience-item {
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 800px;
+  width: 100%;
+  text-align: left;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.experience-item:hover {
+  transform: translateY(-5px);
+}
+
+.experience-item h3 {
+  font-size: 24px;
+  margin-bottom: 5px;
+  color: #3b82f6;
+}
+
+.experience-item h4 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.experience-item p {
+  margin: 5px 0 15px 0;
+  font-style: italic;
+  color: #cbd5e1;
+}
+
+.experience-item ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.experience-item ul li {
+  margin-bottom: 8px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.experience-item ul li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #3b82f6;
+  font-weight: bold;
+}
+
 /* --- PROJECTS SECTION --- */
 .projects {
   padding: 60px 0;
@@ -229,9 +300,9 @@ nav .btn {
 }
 
 .project-grid {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 260px);
   gap: 20px;
-  flex-wrap: wrap;
   justify-content: center;
 }
 
@@ -239,7 +310,7 @@ nav .btn {
   background: #1e293b;
   border-radius: 10px;
   overflow: hidden;
-  width: 300px;
+  width: 260px;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0,0,0,0.3);
   transition: transform 0.3s ease;
@@ -592,8 +663,8 @@ footer {
   }
 
   .project-grid {
-    flex-direction: column;
-    align-items: center;
+    grid-template-columns: 1fr;
+    justify-items: center;
   }
 
   .contact-flex {
