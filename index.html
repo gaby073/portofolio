@@ -130,60 +130,83 @@
     </div>
   </section>
 
-   <section class="certifications" id="certifications">
+<section class="certifications" id="certifications">
     <div class="container">
       <h2 class="section-title">Licenses & Certifications</h2>
-      <div class="certifications-wrapper">
+      <div class="certifications-grid">
         
-        <div class="certification-category">
+        <div class="certification-card" onclick="toggleCertification('ai-cert')">
+          <div class="cert-icon">🤖</div>
           <h3>AI Productivity & API Integration</h3>
-          <div class="certification-item">
-            <h4>AI Productivity and AI API Integration for Developers</h4>
-            <div class="certification-issuer">Hacktiv8 Indonesia</div>
-            <div class="certification-date">Oct 2025</div>
-            <p>Completed an intensive training program focused on integrating AI APIs to improve productivity and user experience. Developed an AI-powered chatbot as a final project, implementing intelligent interaction using external AI services.</p>
-            <div class="certification-skills">
-              <span class="skill-tag">Chatbot Development</span>
-              <span class="skill-tag">AI API Integration</span>
-              <span class="skill-tag">Web Application Development</span>
-            </div>
-            <div class="certification-link">
-              <a href="https://chatboot-gemini.vercel.app/" target="_blank">🔗 View Project</a>
-            </div>
-          </div>
+          <p>Hacktiv8 Indonesia</p>
+          <div class="cert-date">Oct 2025</div>
+          <button class="view-details-btn">View Details</button>
         </div>
 
-        <div class="certification-category">
+        <div class="certification-card" onclick="toggleCertification('data-cert')">
+          <div class="cert-icon">📊</div>
           <h3>Data & Analytics</h3>
-          <div class="certification-item">
-            <h4>Data Classification and Summarization Using IBM Granite</h4>
-            <div class="certification-issuer">IBM SkillsBuild</div>
-            <div class="certification-date">Oct 2025</div>
-            <p>Learned the fundamentals of data classification and text summarization using IBM Granite, with a focus on understanding data processing workflows and AI-driven insights.</p>
-            <div class="certification-skills">
-              <span class="skill-tag">Data Classification</span>
-              <span class="skill-tag">Data Analysis Basics</span>
-              <span class="skill-tag">AI Concepts</span>
-            </div>
-          </div>
+          <p>IBM SkillsBuild</p>
+          <div class="cert-date">Oct 2025</div>
+          <button class="view-details-btn">View Details</button>
         </div>
 
-        <div class="certification-category">
+        <div class="certification-card" onclick="toggleCertification('digital-cert')">
+          <div class="cert-icon">📱</div>
           <h3>Digital & Business Technology</h3>
-          <div class="certification-item">
-            <h4>Meta Certified Digital Marketing Associate</h4>
-            <div class="certification-issuer">Meta</div>
-            <div class="certification-date">Issued Dec 2025 · Expires Dec 2027</div>
-            <p>Gained foundational knowledge of digital marketing strategies, online platforms, and user behavior to support data-driven and user-focused digital solutions.</p>
-            <div class="certification-skills">
-              <span class="skill-tag">Digital Strategy</span>
-              <span class="skill-tag">User Insight</span>
-              <span class="skill-tag">Platform Awareness</span>
-            </div>
-          </div>
+          <p>Meta</p>
+          <div class="cert-date">Dec 2025</div>
+          <button class="view-details-btn">View Details</button>
         </div>
 
       </div>
+
+      <!-- Detail Modals -->
+      <div class="certification-modal" id="ai-cert" style="display: none;">
+        <div class="modal-content">
+          <span class="close-btn" onclick="closeCertification('ai-cert')">&times;</span>
+          <h4>AI Productivity and AI API Integration for Developers</h4>
+          <div class="modal-issuer">Hacktiv8 Indonesia • Oct 2025</div>
+          <p>Completed an intensive training program focused on integrating AI APIs to improve productivity and user experience. Developed an AI-powered chatbot as a final project, implementing intelligent interaction using external AI services.</p>
+          <div class="modal-skills">
+            <span class="skill-tag">Chatbot Development</span>
+            <span class="skill-tag">AI API Integration</span>
+            <span class="skill-tag">Web Application Development</span>
+          </div>
+          <div class="modal-link">
+            <a href="https://chatboot-gemini.vercel.app/" target="_blank">🔗 View Project</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="certification-modal" id="data-cert" style="display: none;">
+        <div class="modal-content">
+          <span class="close-btn" onclick="closeCertification('data-cert')">&times;</span>
+          <h4>Data Classification and Summarization Using IBM Granite</h4>
+          <div class="modal-issuer">IBM SkillsBuild • Oct 2025</div>
+          <p>Learned the fundamentals of data classification and text summarization using IBM Granite, with a focus on understanding data processing workflows and AI-driven insights.</p>
+          <div class="modal-skills">
+            <span class="skill-tag">Data Classification</span>
+            <span class="skill-tag">Data Analysis Basics</span>
+            <span class="skill-tag">AI Concepts</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="certification-modal" id="digital-cert" style="display: none;">
+        <div class="modal-content">
+          <span class="close-btn" onclick="closeCertification('digital-cert')">&times;</span>
+          <h4>Meta Certified Digital Marketing Associate</h4>
+          <div class="modal-issuer">Meta • Issued Dec 2025 · Expires Dec 2027</div>
+          <p>Gained foundational knowledge of digital marketing strategies, online platforms, and user behavior to support data-driven and user-focused digital solutions.</p>
+          <div class="modal-skills">
+            <span class="skill-tag">Digital Strategy</span>
+            <span class="skill-tag">User Insight</span>
+            <span class="skill-tag">Platform Awareness</span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
