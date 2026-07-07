@@ -596,98 +596,121 @@ body {
 }
 .skills {
   padding: 60px 0;
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
-  color: white;
   text-align: center;
-  animation: fadeIn 1s ease;
   position: relative;
   overflow: hidden;
   margin-bottom: 40px;
 }
 
-.skills::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
-  animation: rotate 20s linear infinite;
-  z-index: 0;
-}
-
-.skills .container {
-  position: relative;
-  z-index: 1;
-}
-
-@keyframes rotate {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-@keyframes rotate {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
 .skills .section-title {
-  font-size: 28px;
-  margin-bottom: 30px;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #ffffff;
 }
 
-.skills-column h3 {
-  font-size: 20px;
-  margin-bottom: 15px;
+.skills .section-title span {
   color: #3b82f6;
-  font-weight: 600;
+}
+
+.skills .section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: #3b82f6;
+  margin: 10px auto 0;
+}
+
+.skills .section-subtitle {
+  color: #94a3b8;
+  font-size: 16px;
+  margin-bottom: 50px;
 }
 
 .skills-wrapper {
   display: flex;
   flex-direction: row;
   gap: 40px;
-  justify-content: center;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  text-align: left;
 }
 
 .skills-column {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
+  flex: 1;
 }
 
-.skills-column h3 {
+.column-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.column-header svg {
+  width: 28px;
+  height: 28px;
+  fill: #3b82f6;
+}
+
+.column-header h3 {
   font-size: 20px;
   color: #3b82f6;
   font-weight: 600;
   margin: 0;
 }
 
-.skills-items {
+.skills-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  width: 100%;
-  max-width: 300px;
+  gap: 15px;
 }
 
-.skill-item {
+.skill-card {
   background-color: #1e293b;
-  padding: 15px 25px;
+  border: 1px solid #334155;
   border-radius: 12px;
-  font-weight: bold;
-  text-align: left;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  text-align: center;
   transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
 }
 
-.skill-item:hover {
-  background-color: #3b82f6;
-  color: white;
+.skill-card:hover {
+  background-color: #273549;
+  border-color: #475569;
   transform: translateY(-4px);
+}
+
+.skill-card svg {
+  width: 32px;
+  height: 32px;
+  fill: #94a3b8;
+  margin-bottom: 15px;
+  transition: fill 0.3s ease;
+}
+
+.skill-card:hover svg {
+  fill: #e2e8f0;
+}
+
+.skill-card p {
+  color: #cbd5e1;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.skill-card.centered-card {
+  /* Using calc to match the width of one column + account for gap.
+     Since it's 2 columns with 15px gap: 
+     Wait, in the HTML I added inline style. 
+     We can just use CSS here and remove inline. */
 }
 
 /* Posisi tulisan berjalan di dalam header */

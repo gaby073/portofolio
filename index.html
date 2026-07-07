@@ -8,6 +8,48 @@
   <meta name="keywords" content="portfolio, web development, mobile development, Flutter, React, JavaScript, Gaby Febrianti Sirait" />
   <meta name="author" content="Gaby Febrianti Sirait" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            slate: {
+              800: '#1e293b',
+              900: '#0f172a',
+            }
+          },
+          animation: {
+            blob: "blob 7s infinite",
+            float: "float 6s ease-in-out infinite",
+            floatReverse: "floatReverse 5s ease-in-out infinite",
+          },
+          keyframes: {
+            blob: {
+              "0%": { transform: "translate(0px, 0px) scale(1)" },
+              "33%": { transform: "translate(30px, -50px) scale(1.1)" },
+              "66%": { transform: "translate(-20px, 20px) scale(0.9)" },
+              "100%": { transform: "translate(0px, 0px) scale(1)" },
+            },
+            float: {
+              "0%, 100%": { transform: "translateY(0)" },
+              "50%": { transform: "translateY(-20px)" },
+            },
+            floatReverse: {
+              "0%, 100%": { transform: "translateY(0)" },
+              "50%": { transform: "translateY(20px)" },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .animation-delay-2000 { animation-delay: 2s; }
+    .animation-delay-4000 { animation-delay: 4s; }
+  </style>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -28,153 +70,425 @@
     </div>
   </header>
 
-  <section class="hero">
-    <div class="container hero-flex">
-      <div class="hero-image">
-        <img src="img/gaby-transparent.png" alt="Gaby Transparent" />
+  <!-- Background Blobs -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none z-[-1]">
+    <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-blue-500/20 rounded-full mix-blend-screen filter blur-[100px] animate-blob"></div>
+    <div class="absolute top-[20%] right-[-10%] w-96 h-96 bg-purple-500/20 rounded-full mix-blend-screen filter blur-[100px] animate-blob animation-delay-2000"></div>
+    <div class="absolute bottom-[-20%] left-[20%] w-96 h-96 bg-blue-600/20 rounded-full mix-blend-screen filter blur-[100px] animate-blob animation-delay-4000"></div>
+  </div>
+
+  <section class="hero min-h-screen flex items-center pt-20" id="home">
+    <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <!-- Left Column: Text -->
+      <div class="hero-text order-2 md:order-1 text-center md:text-left">
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 text-sm font-medium mb-6">
+          <i class="fas fa-code"></i> Information Systems Student
+        </div>
+        
+        <!-- Name -->
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 leading-tight">
+          Hi! I'm <br class="hidden md:block"/>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Gaby Febrianti Sirait</span>
+        </h1>
+        
+        <!-- Typewriter Role -->
+        <div class="text-2xl md:text-3xl text-slate-300 mb-6 font-medium h-10 flex items-center justify-center md:justify-start">
+          <span id="typewriter" class="mr-1"></span>
+          <span class="animate-pulse text-blue-500">|</span>
+        </div>
+        
+        <!-- Description -->
+        <p class="text-slate-400 leading-relaxed mb-8 max-w-lg mx-auto md:mx-0 text-lg">
+          A passionate student at <strong class="text-white">Universitas Pembangunan Nasional "Veteran" Jakarta</strong>. I enjoy building interactive and functional digital solutions, blending UI/UX design thinking with technical development to create seamless user experiences.
+        </p>
+        
+        <!-- Buttons -->
+        <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+          <a href="#projects" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-medium transition-colors flex items-center gap-2 shadow-lg shadow-blue-500/30">
+            View My Work <i class="fas fa-arrow-right"></i>
+          </a>
+          <a href="https://github.com/gaby073" target="_blank" class="bg-slate-800 hover:bg-slate-700 text-white px-6 py-3 rounded-xl font-medium transition-colors border border-slate-700 flex items-center gap-2">
+            <i class="fab fa-github text-xl"></i> GitHub
+          </a>
+          <a href="https://linkedin.com/in/gaby-febrianti-sirait" target="_blank" class="bg-slate-800 hover:bg-slate-700 text-white px-6 py-3 rounded-xl font-medium transition-colors border border-slate-700 flex items-center gap-2">
+            <i class="fab fa-linkedin text-blue-400 text-xl"></i> LinkedIn
+          </a>
+        </div>
       </div>
-    <div class="hero-text">
-  <h2>Hi! I'm Gaby Febrianti Sirait</h2>
-  <h3><span>Information Systems Student<br>Universitas Pembangunan Nasional "Veteran" Jakarta</span></h3>
-  <p>I am an Information Systems student with a strong interest in Information Technology, particularly in web and application development. I enjoy building interactive and functional digital solutions with a focus on usability and user experience.</p>
-  <p>I also have an interest in UI/UX design and system analysis, which helps me understand user requirements and translate them into effective technical solutions. I am a motivated and adaptable learner who works well both independently and in team environments.</p>
-</div>
 
-
+      <!-- Right Column: Image -->
+      <div class="hero-image order-1 md:order-2 flex justify-center items-center relative">
+        <div class="relative w-64 h-64 md:w-96 md:h-96 animate-float">
+          <img src="img/gaby-transparent.png" alt="Gaby" class="rounded-full w-full h-full object-cover border-4 border-slate-800 shadow-2xl relative z-10 bg-slate-800/50" />
+          
+          <!-- Floating Icons -->
+          <div class="absolute -top-4 -left-4 bg-slate-800 p-3 rounded-xl border border-slate-700 shadow-lg animate-floatReverse z-20 text-blue-400 text-2xl flex items-center justify-center w-14 h-14">
+            <i class="fab fa-react"></i>
+          </div>
+          <div class="absolute bottom-10 -right-6 bg-slate-800 p-3 rounded-xl border border-slate-700 shadow-lg animate-float z-20 text-yellow-400 text-2xl flex items-center justify-center w-14 h-14" style="animation-delay: 1s;">
+            <i class="fab fa-js"></i>
+          </div>
+          <div class="absolute top-20 -right-4 bg-slate-800 p-3 rounded-xl border border-slate-700 shadow-lg animate-floatReverse z-20 text-purple-400 text-2xl flex items-center justify-center w-14 h-14" style="animation-delay: 2s;">
+            <i class="fab fa-figma"></i>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="about" id="about">
-    <div class="container about-flex">
-      <div class="about-img">
-        <img src="img/gaby24.png" alt="Gaby Profile" />
+  <section class="about py-24" id="about">
+    <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+      <!-- Left Column: Image -->
+      <div class="flex justify-center items-center">
+        <div class="about-img relative w-72 h-72 md:w-80 md:h-80 rounded-full overflow-hidden shadow-2xl border-4 border-slate-800 group bg-slate-800/50">
+          <img src="img/gaby24.png" alt="Working" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-60"></div>
+        </div>
       </div>
-    <div class="about-text">
-  <h3>An Active Student Experienced in Information Systems Development</h3>
-  <p>During my studies in the Diploma of Information Systems program at UPN "Veteran" Jakarta, I have worked on various web-based projects as part of my academic learning and professional skill development in the field of information technology.</p>
-  <ul>
-    <li>✨ Experienced in developing web-based applications using modern technologies</li>
-    <li>✨ Proficient in using HTML, CSS, JavaScript, React.js, and MySQL to build both interface and functionality</li>
-    <li>✨ Highly interested in UI/UX Design, Web Development, and System Analysis & Design</li>
-  </ul>
-</div>
-
-
+      
+      <!-- Right Column: Text -->
+      <div class="about-text">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
+          An Active Student Experienced in <br/>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">Information Systems Development</span>
+        </h2>
+        
+        <p class="text-slate-400 mb-8 leading-relaxed text-lg">
+          During my studies in the Diploma of Information Systems program at UPN "Veteran" Jakarta, I have worked on various web-based projects as part of my academic learning and professional skill development in the field of information technology.
+        </p>
+        
+        <div class="space-y-6">
+          <!-- List Item 1 -->
+          <div class="flex gap-4 items-start">
+            <div class="text-blue-400 mt-1 text-xl">
+              <i class="fas fa-sparkles"></i>
+            </div>
+            <div>
+              <h4 class="text-white font-semibold text-lg">Web Application Development</h4>
+              <p class="text-slate-400 leading-relaxed mt-1">Experienced in developing web-based applications using modern technologies and frameworks.</p>
+            </div>
+          </div>
+          
+          <!-- List Item 2 -->
+          <div class="flex gap-4 items-start">
+            <div class="text-blue-400 mt-1 text-xl">
+              <i class="fas fa-sparkles"></i>
+            </div>
+            <div>
+              <h4 class="text-white font-semibold text-lg">Technical Proficiency</h4>
+              <p class="text-slate-400 leading-relaxed mt-1">Proficient in using HTML, CSS, JavaScript, React.js, and MySQL to build robust interfaces and functionality.</p>
+            </div>
+          </div>
+          
+          <!-- List Item 3 -->
+          <div class="flex gap-4 items-start">
+            <div class="text-blue-400 mt-1 text-xl">
+              <i class="fas fa-sparkles"></i>
+            </div>
+            <div>
+              <h4 class="text-white font-semibold text-lg">System Analysis</h4>
+              <p class="text-slate-400 leading-relaxed mt-1">Strong interest in understanding user requirements and translating them into effective technical solutions.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
+
+  <!-- Typewriter Script -->
+  <script>
+    const roles = ["Web Developer", "UI/UX Enthusiast", "System Analyst"];
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const typewriterElement = document.getElementById("typewriter");
+
+    function typeEffect() {
+      if(!typewriterElement) return;
+      const currentRole = roles[roleIndex];
+      
+      if (isDeleting) {
+        typewriterElement.textContent = currentRole.substring(0, charIndex - 1);
+        charIndex--;
+      } else {
+        typewriterElement.textContent = currentRole.substring(0, charIndex + 1);
+        charIndex++;
+      }
+
+      let typeSpeed = isDeleting ? 50 : 100;
+
+      if (!isDeleting && charIndex === currentRole.length) {
+        typeSpeed = 2000; // Pause at the end
+        isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+        typeSpeed = 500; // Pause before typing new word
+      }
+
+      setTimeout(typeEffect, typeSpeed);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      if(typewriterElement) setTimeout(typeEffect, 1000);
+    });
+  </script>
 
 
   <section class="skills" id="skills">
     <div class="container">
-      <h2 class="section-title">My Skills</h2>
+      <div class="section-header">
+        <h2 class="section-title">My <span>Skills</span></h2>
+        <p class="section-subtitle">Teknologi dan kemampuan yang saya gunakan untuk membangun aplikasi yang luar biasa.</p>
+      </div>
       <div class="skills-wrapper">
-        <div class="skills-column">
-          <h3>Hard Skills</h3>
-          <div class="skills-items">
-            <div class="skill-item">HTML & CSS</div>
-            <div class="skill-item">JavaScript</div>
-            <div class="skill-item">React</div>
-            <div class="skill-item">Flutter</div>
-            <div class="skill-item">Database Management</div>
-             <div class="skill-item">Laravel</div>
-              <div class="skill-item">github</div>
-               <div class="skill-item">vercel</div>
+        <div class="skills-column hard-skills">
+          <div class="column-header">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.11 0-2 .89-2 2v12c0 1.1.89 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.11-.9-2-2-2zM4 18V6h16v12H4zm7.5-6l-4-4L6.08 9.42 8.66 12l-2.58 2.58L7.5 16l4-4zm2 4h6v-2h-6v2z"/></svg>
+            <h3>Hard Skills</h3>
+          </div>
+          <div class="skills-grid">
+            <div class="skill-card">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95c-.32-1.25-.78-2.45-1.38-3.56 1.84.63 3.37 1.91 4.33 3.56zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56-1.84-.63-3.37-1.9-4.33-3.56zm2.95-8H5.08c.96-1.66 2.49-2.93 4.33-3.56C8.81 5.55 8.35 6.75 8.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2s.07-1.34.16-2h4.68c.09.66.16 1.32.16 2s-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95c-.96 1.65-2.49 2.93-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z"/></svg>
+              <p>Web Development &<br>Application Maintenance</p>
+            </div>
+            <div class="skill-card">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
+              <p>HTML, CSS, JavaScript<br>(Basic-Intermediate)</p>
+            </div>
+            <div class="skill-card">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M166.3 361.3c0 36.8-29.9 66.7-66.7 66.7-36.8 0-66.7-29.9-66.7-66.7 0-36.8 29.9-66.7 66.7-66.7h66.7v66.7zM166.3 227.9v-133H99.6c-36.8 0-66.7 29.9-66.7 66.7s29.9 66.7 66.7 66.7h66.7zM284.4 94.9c0-36.8-29.9-66.7-66.7-66.7h-51.4v133.3h51.4c36.8 .1 66.7-29.8 66.7-66.6zM217.7 228h-51.4v133.3h51.4c36.8 0 66.7-29.9 66.7-66.7s-29.9-66.6-66.7-66.6z"/></svg>
+              <p>Figma & UI Prototyping</p>
+            </div>
+            <div class="skill-card">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 16l-4-4V8.82C14.16 8.4 15 7.3 15 6c0-1.66-1.34-3-3-3S9 4.34 9 6c0 1.3.84 2.4 2 2.82V12l-4 4H3v5h5v-3.05l4-4.2 4 4.2V21h5v-5h-4z"/></svg>
+              <p>System Analysis &<br>Workflow Understanding</p>
+            </div>
+            <div class="skill-card">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+              <p>Documentation &<br>Technical Reporting</p>
+            </div>
+            <div class="skill-card">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 20h20v-4H2v4zm2-3h2v2H4v-2zM2 4v4h20V4H2zm4 3H4V5h2v2zm-4 7h20v-4H2v4zm2-3h2v2H4v-2z"/></svg>
+              <p>Basic relational<br>database & server</p>
+            </div>
           </div>
         </div>
-        <div class="skills-column">
-          <h3>Soft Skills</h3>
-          <div class="skills-items">
-            <div class="skill-item">Time Management</div>
-            <div class="skill-item">Teamwork</div>
-            <div class="skill-item">Growth Mindset</div>
-            <div class="skill-item">Problem Solving</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="experience" id="experience">
-    <div class="container">
-      <h2 class="section-title">My Experience</h2>
-      <div class="experience-wrapper">
-        <div class="experience-item">
-          <h3>Digital Development Staff</h3>
-          <h4>Maritim Muda Nusantara</h4>
-          <p>August 2025 - Present</p>
-          <ul>
-            <li>Responsible for maintaining and developing the organization's main website, maritimmuda.hub</li>
-            <li>Performing feature updates to make the website more professional, including KTA updates, automatic image upload system without refresh, and adding CAPTCHA for security</li>
-            <li>Trusted to access and manage the website server, ensuring optimal performance and security of the site</li>
-          </ul>
-        </div>
-        <div class="experience-item">
-          <h3>Staff PDD</h3>
-          <h4>BEM UPN "Veteran" Jakarta</h4>
-          <p>February 2025 - Present</p>
-          <ul>
-            <li>Responsible for designing and editing content for publication needs, both for work programs (proker) and uploads on the Instagram field</li>
-            <li>Managing and leading the implementation of 5 work projects, where 3 main projects have been running with me as the person in charge of design and documentation</li>
-          </ul>
-        </div>
-        <div class="experience-item">
-          <h3>Staff Sosialisasi dan Kampanye</h3>
-          <h4>PEMIRA FIK UPN "Veteran" Jakarta</h4>
-          <p>September 2023 - November 2023</p>
-          <ul>
-            <li>Played an active role in supporting the socialization and campaign process to run smoothly and effectively</li>
-            <li>Responsible for preparing campaign needs for candidate pairs, including posters, campaign tools, as well as scripts and presentations (PPT)</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="certifications" id="certifications">
-    <div class="container">
-      <h2 class="section-title">Licenses & Certifications</h2>
-      <div class="certifications-wrapper">
         
-        <div class="certification-item">
-          <h3>AI Productivity and AI API Integration for Developers</h3>
-          <h4>Hacktiv8 Indonesia</h4>
-          <p>Oct 2025</p>
-          <ul>
-            <li>Completed an intensive training program focused on integrating AI APIs to improve productivity and user experience</li>
-            <li>Developed an AI-powered chatbot as a final project, implementing intelligent interaction using external AI services</li>
-            <li>Gained expertise in chatbot development, AI API integration, and web application development</li>
-          </ul>
-          <div class="certification-link">
-            <a href="https://chatboot-gemini.vercel.app/" target="_blank">🔗 View Project</a>
-            <a href="https://students.hacktiv8.com/certificates/dd4f33a7-51b1-454d-a744-f186ed7f9332" class="cert-detail-btn" target="_blank">Show Credential</a>
+        <div class="skills-column soft-skills">
+          <div class="column-header">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+            <h3>Soft Skills</h3>
+          </div>
+          <div class="skills-grid">
+            <div class="skill-card">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+              <p>Team Collaboration</p>
+            </div>
+            <div class="skill-card">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg>
+              <p>Analytical Skills</p>
+            </div>
+            <div class="skill-card">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+              <p>Time Management</p>
+            </div>
+            <div class="skill-card">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 6h-2v9H6v2c0 1.1.9 2 2 2h11l4 4V8c0-1.1-.9-2-2-2zm-4 2V4c0-1.1-.9-2-2-2H3c-1.1 0-2 .9-2 2v14l4-4h10c1.1 0 2-.9 2-2z"/></svg>
+              <p>Communication Skills</p>
+            </div>
+          </div>
+          <div style="display: flex; justify-content: center; margin-top: 15px;">
+            <div class="skill-card centered-card" style="width: calc(50% - 7.5px);">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.5 11H19V7c0-1.1-.9-2-2-2h-4V3.5C13 2.12 11.88 1 10.5 1S8 2.12 8 3.5V5H4c-1.1 0-1.99.9-1.99 2v3.8H3.5c1.49 0 2.7 1.21 2.7 2.7s-1.21 2.7-2.7 2.7H2V20c0 1.1.9 2 2 2h3.8v-1.5c0-1.49 1.21-2.7 2.7-2.7 1.49 0 2.7 1.21 2.7 2.7V22H17c1.1 0 2-.9 2-2v-4h1.5c1.38 0 2.5-1.12 2.5-2.5S21.88 11 20.5 11z"/></svg>
+              <p>Problem Solving</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================================
+       EXPERIENCE SECTION (Vertical Timeline)
+  =============================================== -->
+  <section id="experience" class="py-24 text-slate-300 relative">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">My <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Experience</span></h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
+      </div>
+
+      <div class="relative max-w-5xl mx-auto">
+        <!-- Vertical Line (Timeline Axis) -->
+        <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-1 bg-slate-800 -translate-x-1/2 rounded-full"></div>
+
+        <!-- 1. PT Nawasena Nusantara Teknologi (Blue Theme | Left on Desktop) -->
+        <div class="relative flex flex-col md:flex-row items-center w-full mb-12 group">
+          <div class="absolute left-4 md:left-1/2 w-5 h-5 md:w-6 md:h-6 rounded-full bg-blue-500 transform -translate-x-1/2 ring-4 ring-slate-900 shadow-[0_0_0_4px_rgba(15,23,42,1)] group-hover:shadow-[0_0_15px_rgba(59,130,246,0.8)] transition-all duration-300 z-10"></div>
+          <div class="w-full md:w-1/2 pl-12 md:pl-0 md:pr-12">
+            <div class="bg-slate-800/40 backdrop-blur-sm border border-slate-700 p-6 md:p-8 rounded-2xl group-hover:border-blue-500/50 transition-colors duration-300">
+              <div class="text-blue-400 font-semibold mb-2 text-sm md:text-base">Maret 2026 - present</div>
+              <h3 class="text-xl md:text-2xl font-bold text-white mb-1">PT Nawasena Nusantara Teknologi</h3>
+              <h4 class="text-md text-slate-300 font-medium mb-5">Software Engineering Intern</h4>
+              <ul class="space-y-3">
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check-circle text-blue-500 mt-1 shrink-0"></i>
+                  <span class="text-slate-400 text-sm leading-relaxed">Updated and improved the UI/UX of 5+ company and client websites using React and Next.js</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check-circle text-blue-500 mt-1 shrink-0"></i>
+                  <span class="text-slate-400 text-sm leading-relaxed">Built and added new features to company and client websites using Laravel, PostgreSQL, and MySQL</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check-circle text-blue-500 mt-1 shrink-0"></i>
+                  <span class="text-slate-400 text-sm leading-relaxed">Handled website deployment to the production server whenever updates were ready</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check-circle text-blue-500 mt-1 shrink-0"></i>
+                  <span class="text-slate-400 text-sm leading-relaxed">Worked in a team of 3 developers using GitHub for version control, including pulling and merging code from other team members</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check-circle text-blue-500 mt-1 shrink-0"></i>
+                  <span class="text-slate-400 text-sm leading-relaxed">Developed and integrated a QRIS generation feature for payment processing, implementing a dynamic pricing system to handle flexible transaction amounts</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="hidden md:block w-1/2 pl-12"></div>
+        </div>
+
+        <!-- 2. Maritim Muda Nusantara (Purple Theme | Right on Desktop) -->
+        <div class="relative flex flex-col md:flex-row items-center w-full mb-12 group">
+          <div class="absolute left-4 md:left-1/2 w-5 h-5 md:w-6 md:h-6 rounded-full bg-purple-500 transform -translate-x-1/2 ring-4 ring-slate-900 shadow-[0_0_0_4px_rgba(15,23,42,1)] group-hover:shadow-[0_0_15px_rgba(168,85,247,0.8)] transition-all duration-300 z-10"></div>
+          <div class="hidden md:block w-1/2 pr-12"></div>
+          <div class="w-full md:w-1/2 pl-12 md:pl-12">
+            <div class="bg-slate-800/40 backdrop-blur-sm border border-slate-700 p-6 md:p-8 rounded-2xl group-hover:border-purple-500/50 transition-colors duration-300">
+              <div class="text-purple-400 font-semibold mb-2 text-sm md:text-base">Agustus - Desember 2025</div>
+              <h3 class="text-xl md:text-2xl font-bold text-white mb-1">Maritim Muda Nusantara</h3>
+              <h4 class="text-md text-slate-300 font-medium mb-5">Digital Development Intern</h4>
+              <ul class="space-y-3">
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check-circle text-purple-500 mt-1 shrink-0"></i>
+                  <span class="text-slate-400 text-sm leading-relaxed">Responsible for maintaining and developing the organization's main website, maritimuda.hub, as a Full-Stack Developer</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check-circle text-purple-500 mt-1 shrink-0"></i>
+                  <span class="text-slate-400 text-sm leading-relaxed">Implementing feature improvements, including KTA update modules, seamless image upload without page refresh, and CAPTCHA integration for security</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check-circle text-purple-500 mt-1 shrink-0"></i>
+                  <span class="text-slate-400 text-sm leading-relaxed">Managing and accessing the website server remotely using SSH, ensuring optimal performance, stability, and security of the platform</span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
-        <div class="certification-item">
-          <h3>Data Classification and Summarization Using IBM Granite</h3>
-          <h4>IBM SkillsBuild</h4>
-          <p>Oct 2025</p>
-          <ul>
-            <li>Learned the fundamentals of data classification and text summarization using IBM Granite</li>
-            <li>Focused on understanding data processing workflows and AI-driven insights</li>
-            <li>Developed skills in data classification, data analysis basics, and AI concepts</li>
-          </ul>
-          <div class="certification-link">
-            <a href="https://www.credly.com/badges/b01761cd-7a97-4a71-bbbb-1564be012c08/linked_in_profile" class="cert-detail-btn" target="_blank">Show Credential</a>
+        <!-- 3. BEM UPN "Veteran" Jakarta (Blue Theme | Left on Desktop) -->
+        <div class="relative flex flex-col md:flex-row items-center w-full mb-12 group">
+          <div class="absolute left-4 md:left-1/2 w-5 h-5 md:w-6 md:h-6 rounded-full bg-blue-500 transform -translate-x-1/2 ring-4 ring-slate-900 shadow-[0_0_0_4px_rgba(15,23,42,1)] group-hover:shadow-[0_0_15px_rgba(59,130,246,0.8)] transition-all duration-300 z-10"></div>
+          <div class="w-full md:w-1/2 pl-12 md:pl-0 md:pr-12">
+            <div class="bg-slate-800/40 backdrop-blur-sm border border-slate-700 p-6 md:p-8 rounded-2xl group-hover:border-blue-500/50 transition-colors duration-300">
+              <div class="text-blue-400 font-semibold mb-2 text-sm md:text-base">Februari 2025 - Desember 2025</div>
+              <h3 class="text-xl md:text-2xl font-bold text-white mb-1">BEM UPN "Veteran" Jakarta</h3>
+              <h4 class="text-md text-slate-300 font-medium mb-5">Staff Pemberdayaan Perempuan dan perlindungan mahasiswa</h4>
+              <ul class="space-y-3">
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check-circle text-blue-500 mt-1 shrink-0"></i>
+                  <span class="text-slate-400 text-sm leading-relaxed">Responsible for designing and editing content for publication needs, including materials for work programs and Instagram posts for the department.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check-circle text-blue-500 mt-1 shrink-0"></i>
+                  <span class="text-slate-400 text-sm leading-relaxed">Managed and led the execution of 5 work projects, with 3 major projects successfully carried out where I served as the person in charge of design and documentation.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="hidden md:block w-1/2 pl-12"></div>
+        </div>
+
+        <!-- 4. IN-BLUE (Purple Theme | Right on Desktop) -->
+        <div class="relative flex flex-col md:flex-row items-center w-full mb-12 group">
+          <div class="absolute left-4 md:left-1/2 w-5 h-5 md:w-6 md:h-6 rounded-full bg-purple-500 transform -translate-x-1/2 ring-4 ring-slate-900 shadow-[0_0_0_4px_rgba(15,23,42,1)] group-hover:shadow-[0_0_15px_rgba(168,85,247,0.8)] transition-all duration-300 z-10"></div>
+          <div class="hidden md:block w-1/2 pr-12"></div>
+          <div class="w-full md:w-1/2 pl-12 md:pl-12">
+            <div class="bg-slate-800/40 backdrop-blur-sm border border-slate-700 p-6 md:p-8 rounded-2xl group-hover:border-purple-500/50 transition-colors duration-300">
+              <div class="text-purple-400 font-semibold mb-2 text-sm md:text-base">3 – 6 November 2025</div>
+              <h3 class="text-xl md:text-2xl font-bold text-white mb-1">International Nusantara Blue Entrepreneur Accelerator (IN-BLUE)</h3>
+              <h4 class="text-md text-slate-300 font-medium mb-1">IT Support Team</h4>
+              <div class="text-sm text-slate-500 mb-5"><i class="fas fa-map-marker-alt mr-2"></i>Podomoro University, Jakarta</div>
+              <ul class="space-y-3">
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check-circle text-purple-500 mt-1 shrink-0"></i>
+                  <span class="text-slate-400 text-sm leading-relaxed">Part of the IT support team responsible for ensuring all presentation sessions ran smoothly.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check-circle text-purple-500 mt-1 shrink-0"></i>
+                  <span class="text-slate-400 text-sm leading-relaxed">Managed hybrid presentation systems (offline & online via Zoom), ensuring proper connectivity and display.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check-circle text-purple-500 mt-1 shrink-0"></i>
+                  <span class="text-slate-400 text-sm leading-relaxed">Ensured microphone and audio systems functioned properly throughout the event.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check-circle text-purple-500 mt-1 shrink-0"></i>
+                  <span class="text-slate-400 text-sm leading-relaxed">Assisted in documentation activities during the event.</span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
-        <div class="certification-item">
-          <h3>Meta Certified Digital Marketing Associate</h3>
-          <h4>Meta</h4>
-          <p>Issued Dec 2025 · Expires Dec 2027</p>
-          <ul>
-            <li>Gained foundational knowledge of digital marketing strategies and online platforms</li>
-            <li>Learned user behavior analysis to support data-driven digital solutions</li>
-            <li>Developed expertise in digital strategy, user insight, and platform awareness</li>
-          </ul>
-          <div class="certification-link">
-            <a href="https://www.credly.com/badges/fc0ff260-e4f3-4cd5-a2db-f9195b5e02ce/linked_in_profile" class="cert-detail-btn" target="_blank">Show Credential</a>
+        <!-- 5. Blue Economist Certification (Blue Theme | Left on Desktop) -->
+        <div class="relative flex flex-col md:flex-row items-center w-full mb-12 group">
+          <div class="absolute left-4 md:left-1/2 w-5 h-5 md:w-6 md:h-6 rounded-full bg-blue-500 transform -translate-x-1/2 ring-4 ring-slate-900 shadow-[0_0_0_4px_rgba(15,23,42,1)] group-hover:shadow-[0_0_15px_rgba(59,130,246,0.8)] transition-all duration-300 z-10"></div>
+          <div class="w-full md:w-1/2 pl-12 md:pl-0 md:pr-12">
+            <div class="bg-slate-800/40 backdrop-blur-sm border border-slate-700 p-6 md:p-8 rounded-2xl group-hover:border-blue-500/50 transition-colors duration-300">
+              <div class="text-blue-400 font-semibold mb-2 text-sm md:text-base">25 September 2025</div>
+              <h3 class="text-xl md:text-2xl font-bold text-white mb-1">International Blue Economist Certification Training Course – Batch 9</h3>
+              <h4 class="text-md text-slate-300 font-medium mb-1">Technical Support Staff</h4>
+              <div class="text-sm text-slate-500 mb-5"><i class="fas fa-map-marker-alt mr-2"></i>Podomoro University, Indonesia</div>
+              <ul class="space-y-3">
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check-circle text-blue-500 mt-1 shrink-0"></i>
+                  <span class="text-slate-400 text-sm leading-relaxed">Served as a technical support staff during an international event attended by both local and international participants.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check-circle text-blue-500 mt-1 shrink-0"></i>
+                  <span class="text-slate-400 text-sm leading-relaxed">Ensured smooth connectivity between offline and online participants during hybrid presentations.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check-circle text-blue-500 mt-1 shrink-0"></i>
+                  <span class="text-slate-400 text-sm leading-relaxed">Managed presentation materials, audio systems, and ensured seamless communication between speakers and participants across platforms.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="hidden md:block w-1/2 pl-12"></div>
+        </div>
+
+        <!-- 6. PEMIRA FIK UPN "Veteran" Jakarta (Purple Theme | Right on Desktop) -->
+        <div class="relative flex flex-col md:flex-row items-center w-full group">
+          <div class="absolute left-4 md:left-1/2 w-5 h-5 md:w-6 md:h-6 rounded-full bg-purple-500 transform -translate-x-1/2 ring-4 ring-slate-900 shadow-[0_0_0_4px_rgba(15,23,42,1)] group-hover:shadow-[0_0_15px_rgba(168,85,247,0.8)] transition-all duration-300 z-10"></div>
+          <div class="hidden md:block w-1/2 pr-12"></div>
+          <div class="w-full md:w-1/2 pl-12 md:pl-12">
+            <div class="bg-slate-800/40 backdrop-blur-sm border border-slate-700 p-6 md:p-8 rounded-2xl group-hover:border-purple-500/50 transition-colors duration-300">
+              <div class="text-purple-400 font-semibold mb-2 text-sm md:text-base">September 2023 - November 2023</div>
+              <h3 class="text-xl md:text-2xl font-bold text-white mb-1">PEMIRA FIK UPN "Veteran" Jakarta</h3>
+              <h4 class="text-md text-slate-300 font-medium mb-5">Staff Sosialisasi dan Kampanye</h4>
+              <ul class="space-y-3">
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check-circle text-purple-500 mt-1 shrink-0"></i>
+                  <span class="text-slate-400 text-sm leading-relaxed">Actively contributed to supporting the socialization process and ensuring the campaign activities ran smoothly and effectively.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check-circle text-purple-500 mt-1 shrink-0"></i>
+                  <span class="text-slate-400 text-sm leading-relaxed">Responsible for preparing campaign materials for the candidate pair, including posters, campaign tools, as well as scripts and presentations (PPT).</span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
@@ -182,126 +496,292 @@
     </div>
   </section>
 
-  <section class="My Projects" id="My projects"></section>
 
-  <section id="projects" class="projects">
-    <div class="container">
-      <h2 class="section-title">My Projects</h2>
-    </div>
-    <div class="project-grid">
-
-      <div class="project-card">
-        <a href="https://manajemen-keuangan-app.vercel.app" target="_blank">
-          <img src="img/money.png" alt="Money Tracker" />
-          <h3>Financial Management Website</h3>
-          <p>Start managing your finances for clearer insights.</p>
-        </a>
-        <p><a href="https://github.com/gaby073/appkeuangan" target="_blank">View Code on GitHub</a></p>
+  <!-- ==============================================
+       LICENSES & CERTIFICATIONS SECTION (Grid)
+  =============================================== -->
+  <section id="certifications" class="py-24 text-slate-300">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Licenses & <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Certifications</span></h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
       </div>
 
-      <div class="project-card">
-        <a href="https://gaby073.github.io/uts_mobilelanjut1/" target="_blank">
-          <img src="img/cover.png" alt="Zodiak App Web" />
-          <h3>Zodiac App (Flutter Web)</h3>
-          <p>View zodiac predictions based on birth date. Built with Flutter and Provider.</p>
-        </a>
-        <p><a href="https://github.com/gaby073/uts_mobilelanjut1" target="_blank">View Code on GitHub</a></p>
-      </div>
-
-      <div class="project-card">
-        <a href="#" onclick="toggleDetails(event, 'bookku-details')">
-          <img src="img/book.png" alt="Bookku App Preview" />
-          <h3>Bookku - Library App</h3>
-          <p>Android Flutter application for reading and saving favorite books.</p>
-        </a>
-        <p>
-          <a href="https://github.com/neorival67/bookku" target="_blank">View Code on GitHub</a> |
-          <a href="https://drive.google.com/file/d/15ituT3kTmOBVBaifesmeYsyHFlyOmof8/view?usp=drive_link" target="_blank">Download APK</a>
-        </p>
-        <button class="detail-button" onclick="toggleDetails(event, 'bookku-details')">View Details</button>
-        <div class="project-details" id="bookku-details" style="display: none;">
-          <h4>User Features:</h4>
-          <ul>
-            <li>User registration and login</li>
-            <li>Reading available digital books</li>
-            <li>Adding books to favorites list</li>
-            <li>Exploring books by title</li>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        
+        <!-- Card 1 (Blue Theme) -->
+        <div class="bg-slate-800/40 backdrop-blur-sm border border-slate-700 p-8 rounded-2xl group hover:-translate-y-2 hover:border-blue-500/50 hover:shadow-[0_10px_30px_rgba(59,130,246,0.15)] transition-all duration-300 flex flex-col">
+          <div class="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center mb-6 border border-blue-500/20 group-hover:bg-blue-500/20 transition-colors">
+            <i class="fas fa-robot text-3xl text-blue-400"></i>
+          </div>
+          
+          <h3 class="text-xl font-bold text-white mb-2 leading-snug">AI Productivity and AI API Integration for Developers</h3>
+          <p class="text-slate-400 text-sm mb-1">Hacktiv8 Indonesia</p>
+          <p class="text-blue-400 font-semibold text-sm mb-6">Oct 2025</p>
+          
+          <ul class="space-y-3 mb-8 flex-grow">
+            <li class="flex items-start gap-3">
+              <i class="fas fa-angle-right text-blue-500 mt-1 shrink-0"></i>
+              <span class="text-slate-400 text-sm leading-relaxed">Completed an intensive training program focused on integrating AI APIs</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-angle-right text-blue-500 mt-1 shrink-0"></i>
+              <span class="text-slate-400 text-sm leading-relaxed">Developed an AI-powered chatbot as a final project</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-angle-right text-blue-500 mt-1 shrink-0"></i>
+              <span class="text-slate-400 text-sm leading-relaxed">Gained expertise in chatbot development & AI integration</span>
+            </li>
           </ul>
-          <p>Built using Flutter with Firebase database integration.</p>
-          <h4>Team Roles:</h4>
-          <ul>
-            <li><strong>Daffa</strong> – Backend Developer (Firebase Auth & Database)</li>
-            <li><strong>Gaby</strong> – Frontend Developer (UI & Navigation)</li>
-            <li><strong>Rasendriya</strong> – Frontend Developer (Book Pages & Components)</li>
-            <li><strong>Putri</strong> – Frontend Developer (UI Design & Responsiveness)</li>
-          </ul>
-          <p><a href="https://docs.google.com/document/d/1Fc7p5uKo0gWC4e8DbW3s1XHXxrS6N67n-VekslZUSdM/edit?usp=sharing" target="_blank">View Project Report</a></p>
+          
+          <a href="https://students.hacktiv8.com/certificates/dd4f33a7-51b1-454d-a744-f186ed7f9332" target="_blank" class="mt-auto block text-center py-3 px-4 border border-blue-500/50 text-blue-400 font-medium rounded-xl hover:bg-blue-500 hover:text-white transition-all duration-300">
+            Show Credential
+          </a>
         </div>
-      </div>
 
-      <div class="project-card">
-        <a href="#" onclick="toggleDetails(event, 'uas-details')">
-          <img src="img/flutter.png" alt="UAS Mobile App Preview" />
-          <h3>UAS Mobile Advanced App</h3>
-          <p>Flutter application with book list and interactive features.</p>
-        </a>
-        <p>
-          <a href="https://github.com/rahmadwiasti/UASMobileLanjut" target="_blank">View Code on GitHub</a> |
-          <a href="https://drive.google.com/file/d/1kmofgdh-xtueaXzTvLhMmmJSegF9P5hj/view?usp=drive_link" target="_blank">Download APK</a>
-        </p>
-        <button class="detail-button" onclick="toggleDetails(event, 'uas-details')">View Details</button>
-        <div class="project-details" id="uas-details" style="display: none;">
-          <h4>Main Features:</h4>
-          <ul>
-            <li>Splash screen and book list card display</li>
-            <li>Like/unlike feature (favorite books)</li>
-            <li>Zoom-out and book detail display</li>
-            <li>Button to delete book from list</li>
+        <!-- Card 2 (Purple Theme) -->
+        <div class="bg-slate-800/40 backdrop-blur-sm border border-slate-700 p-8 rounded-2xl group hover:-translate-y-2 hover:border-purple-500/50 hover:shadow-[0_10px_30px_rgba(168,85,247,0.15)] transition-all duration-300 flex flex-col">
+          <div class="w-16 h-16 bg-purple-500/10 rounded-2xl flex items-center justify-center mb-6 border border-purple-500/20 group-hover:bg-purple-500/20 transition-colors">
+            <i class="fas fa-database text-3xl text-purple-400"></i>
+          </div>
+          
+          <h3 class="text-xl font-bold text-white mb-2 leading-snug">Data Classification and Summarization Using IBM Granite</h3>
+          <p class="text-slate-400 text-sm mb-1">IBM SkillsBuild</p>
+          <p class="text-purple-400 font-semibold text-sm mb-6">Oct 2025</p>
+          
+          <ul class="space-y-3 mb-8 flex-grow">
+            <li class="flex items-start gap-3">
+              <i class="fas fa-angle-right text-purple-500 mt-1 shrink-0"></i>
+              <span class="text-slate-400 text-sm leading-relaxed">Learned the fundamentals of data classification and text summarization</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-angle-right text-purple-500 mt-1 shrink-0"></i>
+              <span class="text-slate-400 text-sm leading-relaxed">Focused on understanding data processing workflows</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-angle-right text-purple-500 mt-1 shrink-0"></i>
+              <span class="text-slate-400 text-sm leading-relaxed">Developed skills in data analysis basics</span>
+            </li>
           </ul>
-          <p>Built using Flutter.</p>
-          <h4>Task Division:</h4>
-          <ul>
-            <li><strong>Gaby</strong> – Splash screen, card, love/unlove feature (July 17 & 19)</li>
-            <li><strong>Putri</strong> – Zoom out, detail card, delete button (July 18–20)</li>
-          </ul>
+          
+          <a href="https://www.credly.com/badges/b01761cd-7a97-4a71-bbbb-1564be012c08/linked_in_profile" target="_blank" class="mt-auto block text-center py-3 px-4 border border-purple-500/50 text-purple-400 font-medium rounded-xl hover:bg-purple-500 hover:text-white transition-all duration-300">
+            Show Credential
+          </a>
         </div>
-      </div>
-      <div class="project-card">
-        <a href="https://chatboot-gemini.vercel.app/" target="_blank">
-          <img src="img/Chatbot.png" alt="Chatbot App" />
-          <h3>Chatbot</h3>
-          <p>Interactive chatbot application built with Gemini.</p>
-        </a>
-        <p><a href="https://github.com/gaby073/chatboot-gemini" target="_blank">View Code on GitHub</a></p>
-      </div>
 
-      <div class="project-card">
-        <a href="https://website-tugasakhir.vercel.app/" target="_blank">
-          <img src="img/fik.webp" alt="Thesis Website" />
-          <h3>Pendaftaran PRA-TA D3 SI UPNVJ </h3>
-          <p>Frontend deployment of the website project. Backend functionalities are not yet available and will be developed later Because this will be be my TA .</p>
-        </a>
-        <p><a href="https://github.com/gaby073/website-tugasakhir" target="_blank">View Code on GitHub</a></p>
-      </div>
+        <!-- Card 3 (Blue Theme) -->
+        <div class="bg-slate-800/40 backdrop-blur-sm border border-slate-700 p-8 rounded-2xl group hover:-translate-y-2 hover:border-blue-500/50 hover:shadow-[0_10px_30px_rgba(59,130,246,0.15)] transition-all duration-300 flex flex-col">
+          <div class="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center mb-6 border border-blue-500/20 group-hover:bg-blue-500/20 transition-colors">
+            <i class="fas fa-bullhorn text-3xl text-blue-400"></i>
+          </div>
+          
+          <h3 class="text-xl font-bold text-white mb-2 leading-snug">Meta Certified Digital Marketing Associate</h3>
+          <p class="text-slate-400 text-sm mb-1">Meta</p>
+          <p class="text-blue-400 font-semibold text-sm mb-6">Issued Dec 2025 - Expires Dec 2027</p>
+          
+          <ul class="space-y-3 mb-8 flex-grow">
+            <li class="flex items-start gap-3">
+              <i class="fas fa-angle-right text-blue-500 mt-1 shrink-0"></i>
+              <span class="text-slate-400 text-sm leading-relaxed">Gained foundational knowledge of digital marketing strategies</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-angle-right text-blue-500 mt-1 shrink-0"></i>
+              <span class="text-slate-400 text-sm leading-relaxed">Learned user behavior analysis to support data-driven solutions</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-angle-right text-blue-500 mt-1 shrink-0"></i>
+              <span class="text-slate-400 text-sm leading-relaxed">Developed expertise in digital strategy & platform awareness</span>
+            </li>
+          </ul>
+          
+          <a href="https://www.credly.com/badges/fc0ff260-e4f3-4cd5-a2db-f9195b5e02ce/linked_in_profile" target="_blank" class="mt-auto block text-center py-3 px-4 border border-blue-500/50 text-blue-400 font-medium rounded-xl hover:bg-blue-500 hover:text-white transition-all duration-300">
+            Show Credential
+          </a>
+        </div>
 
+      </div>
     </div>
-
- 
-    
-    
   </section>
 
-  <section class="contact" id="contact">
-    <div class="container">
-      <h2>Contact Me</h2>
-      <div class="contact-form-container">
-        <h3>Send a Message</h3>
-        <form action="https://api.web3forms.com/submit" method="POST" class="contact-form" id="contactForm">
-          <input type="hidden" name="access_key" value="209ef327-3a69-411a-bb80-ad2e2d4dfbd0">
-          <textarea name="message" placeholder="Write your message here..." required></textarea>
-          <button type="submit" id="submitBtn">Send Message</button>
-        </form>
-        <div id="successMessage" style="display: none; color: green; margin-top: 10px;">Message sent successfully!</div>
+  <!-- ==============================================
+       MY PROJECTS SECTION (Grid Cards)
+  =============================================== -->
+  <section id="projects" class="py-24 text-slate-300">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">My <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Projects</span></h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+        <!-- Project 1: Financial Management Website -->
+        <div class="bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 rounded-2xl overflow-hidden flex flex-col group hover:-translate-y-2 hover:border-blue-500/50 hover:shadow-[0_10px_30px_rgba(59,130,246,0.15)] transition-all duration-300 relative">
+          <a href="https://manajemen-keuangan-app.vercel.app" target="_blank" class="flex flex-col flex-grow outline-none focus:ring-2 focus:ring-blue-500">
+            <div class="h-48 overflow-hidden relative">
+              <img src="img/money.png" alt="Financial Management Website" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <div class="absolute inset-0 bg-slate-900/20 group-hover:bg-transparent transition-colors"></div>
+            </div>
+            <div class="p-6 flex flex-col flex-grow">
+              <div class="flex gap-2 mb-3">
+                <span class="rounded-full bg-blue-500/20 text-blue-400 text-[10px] font-semibold px-3 py-1 tracking-wider uppercase border border-blue-500/20">Web</span>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">Money Tracking Management</h3>
+              <p class="text-slate-400 text-sm leading-relaxed flex-grow">Start managing your finances for clearer insights and better tracking.</p>
+            </div>
+          </a>
+          <div class="px-6 pb-6 mt-auto">
+            <div class="pt-4 border-t border-slate-700/50 flex gap-4">
+              <a href="https://github.com/gaby073/appkeuangan" target="_blank" class="text-slate-300 hover:text-blue-400 text-sm font-medium transition-colors flex items-center gap-2 relative z-10">
+                <i class="fab fa-github text-lg"></i> View Code
+              </a>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Project 3: Chatbot -->
+        <div class="bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 rounded-2xl overflow-hidden flex flex-col group hover:-translate-y-2 hover:border-blue-500/50 hover:shadow-[0_10px_30px_rgba(59,130,246,0.15)] transition-all duration-300 relative">
+          <a href="https://chatboot-gemini.vercel.app/" target="_blank" class="flex flex-col flex-grow outline-none focus:ring-2 focus:ring-blue-500">
+            <div class="h-48 overflow-hidden relative">
+              <img src="img/Chatbot.png" alt="Chatbot" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <div class="absolute inset-0 bg-slate-900/20 group-hover:bg-transparent transition-colors"></div>
+            </div>
+            <div class="p-6 flex flex-col flex-grow">
+              <div class="flex gap-2 mb-3">
+                <span class="rounded-full bg-blue-500/20 text-blue-400 text-[10px] font-semibold px-3 py-1 tracking-wider uppercase border border-blue-500/20">AI Integration</span>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">Chatbot</h3>
+              <p class="text-slate-400 text-sm leading-relaxed flex-grow">An intelligent chatbot application integrating AI services to assist users.</p>
+            </div>
+          </a>
+          <div class="px-6 pb-6 mt-auto">
+            <div class="pt-4 border-t border-slate-700/50 flex gap-3 text-slate-500 text-sm italic relative z-10">
+              Project Details Pending
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4: Pendaftaran PRA-TA D3 SI UPNVJ -->
+        <div class="bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 rounded-2xl overflow-hidden flex flex-col group hover:-translate-y-2 hover:border-purple-500/50 hover:shadow-[0_10px_30px_rgba(168,85,247,0.15)] transition-all duration-300 relative">
+          <a href="https://website-tugasakhir.vercel.app/" target="_blank" class="flex flex-col flex-grow outline-none focus:ring-2 focus:ring-purple-500">
+            <div class="h-48 overflow-hidden relative">
+              <img src="img/fik.webp" alt="Pendaftaran PRA-TA" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <div class="absolute inset-0 bg-slate-900/20 group-hover:bg-transparent transition-colors"></div>
+            </div>
+            <div class="p-6 flex flex-col flex-grow">
+              <div class="flex gap-2 mb-3">
+                <span class="rounded-full bg-purple-500/20 text-purple-400 text-[10px] font-semibold px-3 py-1 tracking-wider uppercase border border-purple-500/20">Web App</span>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">Pendaftaran PRA-TA D3 SI UPNVJ</h3>
+              <p class="text-slate-400 text-sm leading-relaxed flex-grow">System registration platform for Pre-Final Project students of Diploma Information Systems.</p>
+            </div>
+          </a>
+          <div class="px-6 pb-6 mt-auto">
+            <div class="pt-4 border-t border-slate-700/50 flex gap-3 text-slate-500 text-sm italic relative z-10">
+              Internal Project
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================================
+       CONTACT SECTION
+  =============================================== -->
+  <section id="contact" class="py-24 text-slate-300">
+    <div class="container mx-auto px-6 max-w-5xl">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Let's <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Connect</span></h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full mb-6"></div>
+        <p class="text-slate-400">Have a question or want to work together? Feel free to drop a message!</p>
+      </div>
+
+      <div class="bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 rounded-2xl overflow-hidden flex flex-col md:flex-row">
+        
+        <!-- Contact Information -->
+        <div class="w-full md:w-5/12 p-8 md:p-10 flex flex-col justify-between">
+          <div>
+            <h3 class="text-2xl font-bold text-white mb-6">Contact Information</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-8">
+              I am currently open for internship opportunities, freelance projects, or full-time roles in web development and system analysis.
+            </p>
+
+            <div class="space-y-6">
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center justify-center text-blue-400 shrink-0">
+                  <i class="fas fa-envelope text-lg"></i>
+                </div>
+                <div>
+                  <h4 class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Email Me</h4>
+                  <a href="mailto:gabysirait5@gmail.com" class="text-slate-300 text-sm hover:text-blue-400 transition-colors">gabysirait5@gmail.com</a>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 bg-purple-500/10 border border-purple-500/20 rounded-xl flex items-center justify-center text-purple-400 shrink-0">
+                  <i class="fas fa-map-marker-alt text-lg"></i>
+                </div>
+                <div>
+                  <h4 class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Location</h4>
+                  <p class="text-slate-300 text-sm">Jakarta, Indonesia</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-12 pt-8 border-t border-slate-700/50">
+            <h4 class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-4">Follow Me</h4>
+            <div class="flex gap-4">
+              <a href="https://linkedin.com/in/gaby-febrianti-sirait" target="_blank" class="w-10 h-10 bg-slate-700/50 rounded-full flex items-center justify-center text-slate-400 hover:bg-blue-500/20 hover:text-blue-400 transition-all border border-transparent hover:border-blue-500/30">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="https://github.com/gaby073" target="_blank" class="w-10 h-10 bg-slate-700/50 rounded-full flex items-center justify-center text-slate-400 hover:bg-slate-600 hover:text-white transition-all border border-transparent hover:border-slate-500/30">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="https://instagram.com/gabyyyfs._" target="_blank" class="w-10 h-10 bg-slate-700/50 rounded-full flex items-center justify-center text-slate-400 hover:bg-pink-500/20 hover:text-pink-400 transition-all border border-transparent hover:border-pink-500/30">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="w-full md:w-7/12 p-8 md:p-10 border-t md:border-t-0 md:border-l border-slate-700/50">
+          <form action="https://api.web3forms.com/submit" method="POST" id="contactForm">
+            <input type="hidden" name="access_key" value="209ef327-3a69-411a-bb80-ad2e2d4dfbd0">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+              <div>
+                <label for="name" class="block text-xs font-medium text-slate-400 mb-2">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="John Doe" class="w-full bg-transparent border border-slate-700 rounded-xl px-4 py-3 text-slate-300 placeholder-slate-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors" required>
+              </div>
+              <div>
+                <label for="email" class="block text-xs font-medium text-slate-400 mb-2">Your Email</label>
+                <input type="email" id="email" name="email" placeholder="john@example.com" class="w-full bg-transparent border border-slate-700 rounded-xl px-4 py-3 text-slate-300 placeholder-slate-600 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-colors" required>
+              </div>
+            </div>
+
+            <div class="mb-6">
+              <label for="subject" class="block text-xs font-medium text-slate-400 mb-2">Subject</label>
+              <input type="text" id="subject" name="subject" placeholder="Collaboration / Project Inquiry" class="w-full bg-transparent border border-slate-700 rounded-xl px-4 py-3 text-slate-300 placeholder-slate-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors" required>
+            </div>
+
+            <div class="mb-6">
+              <label for="message" class="block text-xs font-medium text-slate-400 mb-2">Message</label>
+              <textarea id="message" name="message" placeholder="Write your message here..." rows="4" class="w-full bg-transparent border border-slate-700 rounded-xl px-4 py-3 text-slate-300 placeholder-slate-600 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-colors resize-none" required></textarea>
+            </div>
+
+            <button type="submit" id="submitBtn" class="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold py-3.5 px-6 rounded-xl hover:shadow-[0_10px_20px_rgba(168,85,247,0.3)] transition-all duration-300 flex justify-center items-center gap-2 group">
+              <span>Send Message</span>
+              <i class="fas fa-paper-plane group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+            </button>
+            <div id="successMessage" style="display: none;" class="mt-4 text-center text-emerald-400 text-sm font-medium p-3 bg-emerald-500/10 border border-emerald-500/20 rounded-xl">Message sent successfully!</div>
+          </form>
+        </div>
+
       </div>
     </div>
   </section>
